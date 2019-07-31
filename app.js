@@ -6,7 +6,7 @@ GAME RULES:
 - BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn.
 - ALSO, if the player rolls two 6 for any dice in a row, his GLOBAL score gets lost.
 - The player can choose to 'Hold', which means that his ROUND score gets added to his GLOBAL score. After that, it's the next player's turn.
-- Players can define the winning value, be default it's 100.
+- Players can define the winning value, by default it's 100.
 
 */
 
@@ -17,6 +17,7 @@ init();
 var lastDice1; // So that the var of last dice value is not lost after function returns
 var lastDice2;
 
+// Roll button events
 document.querySelector('.btn-roll').addEventListener('click', function() { 
     if (gamePlaying) {
         // 1. Random number
@@ -49,6 +50,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     }
 });
 
+// Hold button events
 document.querySelector('.btn-hold').addEventListener('click', function() {
     if (gamePlaying) {
         // Add player's current score to global score
@@ -84,6 +86,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
     }
 });
 
+// Functions
 function nextPlayer() {
      // Change player
      activePlayer === 0 ? activePlayer = 1 : activePlayer = 0; // Ternary operator
